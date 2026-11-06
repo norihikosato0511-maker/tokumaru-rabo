@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563eb">
+
+<title>徳丸ラボ</title>
+
+<link rel="icon" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="favicon-192x192.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+    .app-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+    </style>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Noto Sans JP',sans-serif;
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #1e3a8a,
+        #2563eb,
+        #4f46e5
+    );
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+section{
+    padding:80px 0;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:2rem;
+}
+
+/* HERO */
+
+.hero{
+    min-height:70vh;
+}
+
+.hero-content{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.hero-text h1{
+    font-size:4rem;
+    margin-bottom:20px;
+
+    background:linear-gradient(
+        90deg,
+        #60a5fa,
+        #c084fc
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-text p{
+    color:#dbeafe;
+    line-height:1.8;
+}
+
+.hero-image{
+    flex:1;
+    text-align:center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 28px;
+    border-radius:999px;
+    text-decoration:none;
+    color:white;
+
+    background:linear-gradient(
+    90deg,
+    #3b82f6,
+    #9333ea);
+}
+
+/* ガラスカード */
+
+.card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;
+    padding:25px;
+    backdrop-filter:blur(10px);
+}
+
+/* 制作物 */
+
+.works-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.work-card{
+    overflow:hidden;
+    border-radius:20px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+
+    text-decoration:none;
+    color:inherit;
+    display:block;
+    transition:.3s;
+}
+
+.work-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.work-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background: #f8fafc;
+    padding: 10px;
+}
+
+.work-body{
+    padding:20px;
+}
+
+.work-body h3{
+    margin-bottom:10px;
+    color:#60a5fa;
+}
+
+/* スキル */
+
+.skill{
+    margin-bottom:20px;
+}
+
+.bar{
+    height:16px;
+    background:#334155;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:
+    linear-gradient(
+        90deg,
+        #3b82f6,
+        #9333ea
+    );
+}
+
+/* ギャラリー */
+
+.gallery{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:240px;
+    object-fit:contain;
+
+    background:white;
+    border-radius:20px;
+    padding:20px;
+}
+
+
+/* フッター */
+
+footer{
+    padding:50px 20px;
+    text-align:center;
+    color:#cbd5e1;
+}
+
+.logo{
+    display:flex;
+    justify-content:center;
+    padding:30px 0;
+}
+
+.logo img{
+    width:min(800px,95%);
+    padding:20px;
+    border-radius:30px;
+
+    background:rgba(255,255,255,.15);
+
+    filter:
+        drop-shadow(0 0 15px rgba(255,255,255,.8))
+        drop-shadow(0 0 40px rgba(96,165,250,.8));
+
+    backdrop-filter:blur(10px);
+}
+
+
+@media(max-width:768px){
+
+.hero-text h1{
+    font-size:2.5rem;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- ロゴ -->
+
+<div class="logo">
+    <img src="logo.png" alt="徳丸ラボ">
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+<div class="hero-text">
+
+<h1>徳丸ラボ</h1>
+
+<p>
+学んで、作って、楽しむ。<br>
+Webアプリ開発・AI活用・麻雀ツールなど、
+徳丸オリジナルの制作物を公開しています。
+</p>
+
+<a href="#works" class="btn">
+制作物を見る
+</a>
+
+</div>
+
+<div class="hero-image">
+    <img src="tokumaru-main.png" alt="徳丸">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROFILE -->
+
+<section>
+
+<div class="container">
+
+<h2>👤 Profile</h2>
+
+<div class="card">
+
+<p>
+こんにちは、徳丸です。<br>
+HTML・CSS・JavaScriptを中心に
+Webアプリ制作を学習しています。
+
+最近はPWAやデザイン、
+AI活用にも挑戦しています。
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- WORKS -->
+<section id="works">
+<div class="container">
+
+<h2>🚀 制作物</h2>
+
+<div class="works-grid">
+
+    <!-- 計算機 -->
+    <a href="https://norihikosato0511-maker.github.io/marutoku-utility-app/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="work-card">
+
+        <img src="tokumaru-calculator.png" alt="プログラマ電卓">
+
+        <div class="work-body">
+            <h3>🧮 徳印ユーティリティ Pro</h3>
+            <p>
+                DEC・HEX・BIN・OCT・QUAD対応。
+                64bit BigInt、ビット演算、
+                文字変換、ネットワーク変換を搭載。
+            </p>
+        </div>
+    </a>
+
+    <!-- 英会話 -->
+    <a href="https://norihikosato0511-maker.github.io/marutoku-eikaiwa-app/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="work-card">
+
+        <img src="english-app.png" alt="英会話アプリ">
+
+        <div class="work-body">
+            <h3>🗣️ 英会話アプリ</h3>
+            <p>スマホ対応の英語学習アプリ</p>
+        </div>
+    </a>
+
+    <!-- 麻雀 -->
+    <a href="https://norihikosato0511-maker.github.io/marutoku-mahjong-points-app/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="work-card">
+
+        <img src="mahjong-app.png" alt="麻雀点数計算アプリ">
+
+        <div class="work-body">
+            <h3>🀄 麻雀点数計算アプリ</h3>
+            <p>符計算・翻数計算を自動化</p>
+        </div>
+    </a>
+
+    <!-- 文字起こし -->
+    <a href="https://norihikosato0511-maker.github.io/marutoku-transcription-app/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="work-card">
+
+        <img src="transcribe-app.png" alt="文字起こしアプリ">
+
+        <div class="work-body">
+            <h3>🎙️ 文字起こしアプリ</h3>
+            <p>音声をテキスト化するアプリ</p>
+        </div>
+    </a>
+
+    <!-- 翻訳 -->
+    <a href="https://norihikosato0511-maker.github.io/marutoku-translator/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="work-card">
+
+        <img src="translate-app.png" alt="翻訳アプリ">
+
+        <div class="work-body">
+            <h3>🌐 翻訳アプリ</h3>
+            <p>日本語と英語を相互翻訳できるアプリ</p>
+        </div>
+    </a>
+
+    <!-- 抽選 -->
+    <a href="https://norihikosato0511-maker.github.io/marutoku-lottery-app/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="work-card">
+
+        <img src="lottery-app.png" alt="抽選アプリ">
+
+        <div class="work-body">
+            <h3>🎯 抽選アプリ</h3>
+            <p>ランダム抽選ができるアプリ</p>
+        </div>
+    </a>
+
+    <!-- 絵本 -->
+    <div class="work-card">
+
+        <img src="ehon-cover.png" alt="絵本">
+
+        <div class="work-body">
+            <h3>📚 徳丸くんと麻雀牌のひみつ（制作中）</h3>
+            <p>
+                🚧 制作中です。完成までお楽しみに！
+            </p>
+        </div>
+    </div>
+</div>
+
+</div>
+</section>
+
+<!-- SKILLS -->
+
+<section>
+
+<div class="container">
+
+<h2>🎮 Skill Status</h2>
+
+<div class="card">
+
+<div class="skill">
+HTML
+<div class="bar"><div class="fill" style="width:80%"></div></div>
+</div>
+
+<div class="skill">
+CSS
+<div class="bar"><div class="fill" style="width:70%"></div></div>
+</div>
+
+<div class="skill">
+JavaScript
+<div class="bar"><div class="fill" style="width:65%"></div></div>
+</div>
+
+<div class="skill">
+PWA
+<div class="bar"><div class="fill" style="width:60%"></div></div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ギャラリー -->
+
+<section>
+
+<div class="container">
+
+<h2>🐻‍❄️ 徳丸ギャラリー</h2>
+
+<div class="gallery">
+
+<img src="tokumaru-dev.png" alt="">
+<img src="tokumaru-study.png" alt="">
+<img src="tokumaru-mahjong.png" alt="">
+<img src="tokumaru-transcribe.png" alt="">
+<img src="tokumaru-lottery.png" alt="">
+<img src="tokumaru-thumbsup.png" alt="">
+<img src="tokumaru-translate.png" alt="">
+<img src="ehon-cover.png" alt="徳丸くんと麻雀牌のひみつ">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FEEDBACK -->
+
+<section>
+
+<div class="container">
+
+<h2>💌 ご意見・ご感想</h2>
+
+<div class="card">
+
+<p style="margin-bottom:20px;">
+徳丸ラボへのご意見、ご感想、
+アプリの改善要望などがありましたら
+ぜひお聞かせください。
+</p>
+
+<input type="text"
+       placeholder="お名前（任意）"
+       style="width:100%;padding:12px;margin-bottom:10px;border:none;border-radius:10px;">
+
+<textarea
+       placeholder="ご意見・ご感想"
+       rows="5"
+       style="width:100%;padding:12px;border:none;border-radius:10px;"></textarea>
+
+<p style="margin-top:15px;color:#dbeafe;">
+📌 現在、ご意見箱は準備中です。
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<img src="tokumaru-thumbsup.png"
+     alt="徳丸"
+     width="150">
+
+<h3>徳丸ラボ</h3>
+
+<p>
+学んで、作って、楽しむ。
+</p>
+
+<p>
+© 2026 Tokumaru Lab
+</p>
+
+</footer>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js");
+  });
+}
+</script>
+
+</body>
+</html>
